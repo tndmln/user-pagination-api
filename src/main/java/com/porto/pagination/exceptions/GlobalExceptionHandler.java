@@ -11,15 +11,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-@Hidden // Hide this controller from Swagger documentation
+@Hidden
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler(IllegalArgumentException.class)
-	public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex) {
+	@ExceptionHandler(BadRequestException.class)
+	public ResponseEntity<Object> handleBadRequest(BadRequestException ex) {
 		Map<String, Object> body = new LinkedHashMap<>();
 		body.put("timestamp", LocalDateTime.now());
 		body.put("status", HttpStatus.BAD_REQUEST.value());
-		body.put("error", "Invalid pagination parameter");
+		body.put("error", "Bad Request");
 		body.put("message", ex.getMessage());
 
 		return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
@@ -29,11 +29,11 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<Object> handleExternalApiException(ExternalApiException ex) {
 		Map<String, Object> body = new LinkedHashMap<>();
 		body.put("timestamp", LocalDateTime.now());
-		body.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+		body.put("status", HttpStatus.SERVICE_UNAVAILABLE.value());
 		body.put("error", "External API Error");
 		body.put("message", ex.getMessage());
 
-		return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>(body, HttpStatus.SERVICE_UNAVAILABLE);
 	}
 
 	@ExceptionHandler(Exception.class)

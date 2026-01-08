@@ -18,4 +18,5 @@ public class PaginatedApiApplication {
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+	
 }
