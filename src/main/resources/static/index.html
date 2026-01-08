@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users Pagination API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Inter, Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            margin-top: 32px;
+            font-size: 22px;
+        }
+
+        p {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: #020617;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        code {
+            background: #020617;
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: #38bdf8;
+            font-size: 14px;
+        }
+
+        .endpoint {
+            margin-top: 16px;
+        }
+
+        .method {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .get {
+            background: #16a34a;
+            color: #022c22;
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 12px 18px;
+            background: #2563eb;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        a.button:hover {
+            background: #1d4ed8;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 13px;
+            color: #6b7280;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Users Pagination API</h1>
+    <p>
+        RESTful API built with <b>Java 17</b> and <b>Spring Boot</b> to provide
+        paginated user data and name-based search.
+        Data is fetched from an external API and cached for better performance.
+    </p>
+
+    <div class="card">
+        <h2>📌 Available Endpoints</h2>
+
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>/api/users?page=1&size=10</code>
+            <p>Get paginated list of users.</p>
+        </div>
+
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>/api/users/search?name=john&page=1&size=10</code>
+            <p>Search users by first name or last name.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📘 API Documentation</h2>
+        <p>
+            Full API documentation is available via Swagger UI.
+            You can try all endpoints directly from the browser.
+        </p>
+
+        <a class="button" href="/swagger-ui/index.html">
+            Open Swagger UI
+        </a>
+
+        <a class="button" href="/v3/api-docs" style="margin-left: 12px; background:#334155;">
+            View OpenAPI JSON
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>⚙️ Technical Highlights</h2>
+        <ul>
+            <li>Pagination with validation</li>
+            <li>Search by first & last name</li>
+            <li>External API integration</li>
+            <li>In-memory caching with TTL</li>
+            <li>Swagger (OpenAPI 3)</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        Built with Spring Boot · Deployed on Railway
+    </div>
+
+</div>
+
+</body>
+</html>
