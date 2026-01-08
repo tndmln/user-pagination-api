@@ -1,30 +1,33 @@
 server:
-  port: ${PORT:8080}
+    port: ${PORT:8080}
 
 external:
-  api:
-    url: https://dummyjson.com/users
+    api:
+        url: https://dummyjson.com/users
 
 springdoc:
-  api-docs:
-    enabled: true
-  swagger-ui:
-    enabled: true
-    operations-sorter: method
-    tags-sorter: alpha
-    display-request-duration: true
-    filter: true
+    api-docs:
+        enabled: true
+    swagger-ui:
+        enabled: true
+        operations-sorter: method
+        tags-sorter: alpha
+        display-request-duration: true
+        filter: true
 
 logging:
-  level:
-    com.porto.pagination: INFO
-    com.porto.pagination.services: DEBUG
+    level:
+        com.porto.pagination: INFO
+        com.porto.pagination.services: DEBUG
+        root: INFO
+        org.springframework.web: DEBUG
+        org.springdoc: DEBUG
 
 app:
-  pagination:
-    default-page: 1
-    default-size: 10
-    max-size: 100
-  cache:
-    enabled: true
-    duration-ms: 300000
+    pagination:
+        default-page: 1
+        default-size: 10
+        max-size: 100
+    cache:
+        enabled: true
+        duration-ms: 300000
