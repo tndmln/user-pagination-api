@@ -9,6 +9,8 @@ springdoc:
     api-docs:
         enabled: true
     swagger-ui:
+        csrf:
+            enabled: false
         enabled: true
         operations-sorter: method
         tags-sorter: alpha
