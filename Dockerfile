@@ -1,18 +1,14 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM maven:3.9.9-eclipse-temurin-17 AS build
 
 WORKDIR /app
-
-# Copy Maven Wrapper & config
-COPY mvnw .
-COPY .mvn .mvn
 COPY pom.xml .
-
-RUN chmod +x mvnw
-
-RUN ./mvnw dependency:go-offline
+RUN mvn dependency:go-offline
 
 COPY src src
+RUN mvn clean package -DskipTests
 
-RUN ./mvnw clean package -DskipTests
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/user-pagination-api-1.0.0.jar app.jar
 
-CMD ["java", "-jar", "target/pagination-api-1.0.0.jar"]
+CMD ["java", "-jar", "app.jar"]
