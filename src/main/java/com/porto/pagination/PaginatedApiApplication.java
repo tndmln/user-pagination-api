@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.example.pagination")
+@ComponentScan(basePackages = "com.porto.pagination")
 public class PaginatedApiApplication {
 
 	public static void main(String[] args) {
